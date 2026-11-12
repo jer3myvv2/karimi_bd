@@ -47,6 +47,14 @@ const iconPaths = {
   moon: '<path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/>',
 };
 
+const galleryImages = [
+  { type: 'image', src: 'usage/IMG_20261112_064413_277_2.jpg', alt: 'Photo memory' },
+  { type: 'video', src: 'usage/VID_20261111_194413_286.mp4', alt: 'Video memory' },
+  { type: 'image', src: 'usage/IMG_20261112_064413_279.jpg', alt: 'Photo memory' },
+  { type: 'image', src: 'usage/IMG_20261112_064413_497_3.jpg', alt: 'Photo memory' },
+  { type: 'image', src: 'usage/IMG_20261112_064413_506_4.jpg', alt: 'Photo memory' },
+];
+
 function renderGifts(){
   const grid = document.getElementById('giftGrid');
   grid.innerHTML = giftContents.map((g,i) => `
@@ -75,9 +83,37 @@ function closeGiftModal(){
   document.getElementById('giftModal').classList.remove('open');
 }
 
+function renderGallery(){
+  const grid = document.getElementById('galleryGrid');
+  if (!grid) return;
+  grid.innerHTML = galleryImages.map((image) => `
+    <div class="gallery-card">
+      ${image.type === 'video'
+        ? `<video src="${image.src}" controls playsinline preload="metadata" muted></video>`
+        : `<img src="${image.src}" alt="${image.alt}" loading="lazy">`
+      }
+    </div>
+  `).join('');
+}
+
+function openGallery(){
+  const modal = document.getElementById('galleryModal');
+  if (!modal) return;
+  modal.classList.add('open');
+}
+
+function closeGallery(){
+  const modal = document.getElementById('galleryModal');
+  if (!modal) return;
+  modal.classList.remove('open');
+}
+
+renderGallery();
+
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape'){
     closeGiftModal();
+    closeGallery();
   }
 });
 

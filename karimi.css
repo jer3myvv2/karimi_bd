@@ -237,6 +237,17 @@ h2.title{
 }
 .gift-label{ font-size: 12.5px; color: var(--ink-soft); text-align:center; font-weight:600; letter-spacing:0.02em; }
 
+.gallery-intro{
+  text-align:center;
+  margin-top: 24px;
+}
+.gallery-description{
+  margin-top: 10px;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
 /* Gift modal */
 .modal-backdrop{
   position:fixed; inset:0; background: rgba(43,58,52,0.45);
@@ -245,7 +256,7 @@ h2.title{
 .modal-backdrop.open{ display:flex; }
 .modal{
   background: linear-gradient(180deg, #ffffff 0%, #fbf8f2 100%); border-radius: 22px; padding: 38px 30px;
-  max-width: 380px; width:100%; text-align:center; position:relative;
+  max-width: 380px; width:100%; max-height: 85vh; overflow-y: auto; text-align:center; position:relative;
   box-shadow: 0 30px 70px -20px rgba(0,0,0,0.3);
   animation: pop .28s ease;
   border: 1px solid rgba(230, 225, 211, 0.9);
@@ -338,6 +349,7 @@ h2.title{
 }
 .modal.gallery-modal{
   max-width: 760px;
+  max-height: 88vh;
 }
 .gallery-modal-content img,
 .gallery-modal-content video{

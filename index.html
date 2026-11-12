@@ -38,6 +38,10 @@
       <h2 class="title">Stitch &amp; Lilo Treasures</h2>
       <p class="subtitle">Three tiny surprises, each packed with a little Ohana magic.</p>
       <div class="gift-grid" id="giftGrid"></div>
+      <div class="gallery-intro">
+        <button class="gallery-action" onclick="openGallery()">Open the memory gallery</button>
+        <p class="gallery-description">A few cute snapshots and little moments from our favorite memories together.</p>
+      </div>
     </div>
     <div class="scroll-cue" onclick="document.getElementById('reasons').scrollIntoView({ behavior: 'smooth' })">
       Scroll down
@@ -104,6 +108,15 @@
   </div>
 </div>
 
+<!-- ================= GALLERY MODAL ================= -->
+<div class="modal-backdrop" id="galleryModal" onclick="if(event.target===this) closeGallery()">
+  <div class="modal gallery-modal">
+    <button class="modal-close" onclick="closeGallery()">✕</button>
+    <div class="eyebrow" style="justify-content:center;">Memories</div>
+    <h2 class="title" style="font-size:32px;">A little piece of you</h2>
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</div>
 
 <script src="karimi.js"></script>
 </body>
